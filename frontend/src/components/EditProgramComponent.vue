@@ -5,22 +5,33 @@
       <h3 class="text-center">Update Program</h3>
       <form @submit.prevent="handleUpdateForm">
         <div class="form-group">
-          <label>Activty</label>
-          <div id="v-model-select">
-            <select class="form-control" v-model="program.activity">
+          <label>Program</label>
+          <div id="v-model-select" class="form-group">>
+            <select v-model="program.activity">
               <option disabled value="">Please select one</option>
-              <option v-for="selection in Selection" :key="selection._id">
-                {{ selection.activity }}
-              </option>
+              <option>Adult Education</option>
+              <option>Family Support Services</option>
+              <option>Early Childhood</option>
+              <option>Youth Services</option>
             </select>
-            <span>Selected: {{ selected }}</span>
+            <span>{{ program.activity }}</span>
           </div>
+        </div>
+
+        <div class="form-group">
+          <label>Client No</label>
+          <input
+            type="number"
+            class="form-control"
+            v-model="program.clientNo"
+            required
+          />
         </div>
 
         <div class="form-group">
           <label>Start Date</label>
           <input
-            type="text"
+            type="date"
             class="form-control"
             v-model="program.startDate"
             required
@@ -30,9 +41,9 @@
         <div class="form-group">
           <label>End Date</label>
           <input
-            type="text"
+            type="date"
             class="form-control"
-            v-model="program.endDate"
+            v-model="program.closeDate"
             required
           />
         </div>
@@ -61,8 +72,6 @@ export default {
   data() {
     return {
       program: {},
-      Selection: [],
-      selected: "",
     };
   },
   created() {
@@ -72,11 +81,6 @@ export default {
       this.program = res.data;
     });
 
-    let apiURL1 = `http://localhost:3000/selections`;
-
-    axios.get(apiURL1).then((res) => {
-      this.Selection = res.data;
-    });
   },
   methods: {
     handleUpdateForm() {

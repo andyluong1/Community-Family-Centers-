@@ -2,11 +2,12 @@
 <template>
     <div class="row">
         <div class="col-md-12">
-                <h2>Activties for: {{client.firstName}} {{client.lastName}}</h2>
+                <h2>Activties</h2>
                 <table class="table table-striped">
                     <thead class="thead-dark">
                         <tr>
                             <th>Activity</th>
+                            <th>ClientNo</th>
                             <th>Start Date</th>
                             <th>End Date</th>
                             <th>Services Used</th>
@@ -15,6 +16,7 @@
                     <tbody>
                         <tr v-for="program in Programs" :key="program._id">
                             <td>{{ program.activity }}</td>
+                            <td>{{ program.clientNo }}</td>
                             <td>{{ program.startDate }}</td>
                             <td>{{ program.closeDate }}</td>
                             <td>{{ program.servicesUsed }}</td>
@@ -26,7 +28,6 @@
                         </tr>
                     </tbody>
                 </table>
-
         </div>
     </div>
 </template>
@@ -39,17 +40,17 @@
         data() {
             return {
                 Programs: [],
-                Client: [],
+                Clients: [],
                 client: {
                    firstName: '',
                    lastName: '',
                   },
                 program: {
                    activity: '',
+                   clientNo: this.$route.params.id,
                    startDate: '',
                    endDate: '',
                    servicesUsed: '',
-                   clientNo: this.$route.params.id
                   }
             }
         },

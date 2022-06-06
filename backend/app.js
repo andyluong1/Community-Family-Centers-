@@ -185,11 +185,11 @@ app.delete('/program/:id', (req, res, next) => {
 // Aggregate Function
 // The program information is linked with an client number from client information
 // Get activity starting with date/time and client with clientNo
-app.get('/activity/:id', (req, res, next) => {
+app.get('/program', (req, res, next) => {
 
   ClientModel.aggregate([
     { $match : { clientNo : req.params.id } },
-    { $project : { firstName : 1, lastName : 1, clientNo : 1, familyNo : 1, startDate : 1, closeDate : 1, } },
+    { $project : { clientNo : 1, firstName : 1, lastName : 1, programbyClient : 1 } },
     { $lookup : {
         from : 'program',
         localField : 'clientNo',
@@ -204,50 +204,6 @@ app.get('/activity/:id', (req, res, next) => {
       }
   });
 });
-
-// Get activity starting with date/time with employeeNo
-// app.get('/activity2/:employeeNo', (req, res, next) => {
-
-//   ProgramModel.aggregate([
-//     { $match : { employeeNo : req.params.employeeNo } },
-//     { $project : { _id : 0, employeeNo: 1, employeeName : 1, activity : 1, startDate : 1, closeDate : 1, } },
-//     { $lookup : {
-//         from : 'client',
-//         localField : 'clientNo',
-//         foreignField : 'firstName',
-//         as : 'client'
-//     } }
-//   ], (error, data) => {
-//       if (error) {
-//         return next(error)
-//       } else {
-//         res.json(data);
-//       }
-//   });
-// });
-
-// Endpoint that creates programs for selection
-// app.post('/selection', (req, res, next) => {
-//   SelectionModel.create(req.body, (error, data) => {
-//       if (error) {
-//         return next(error)
-//       } else {
-//         res.json(data)
-//         //res.send('Program is added to the database');
-//       }
-//   });
-// });
-
-// Endpoint that retrieves programs for selection
-// app.get('/selections', (req, res, next) => {
-//   SelectionModel.find({  }, (error, data) => {
-//       if (error) {
-//         return next(error)
-//       } else {
-//         res.json(data);
-//       }
-//   });
-// });
 
 // eslint-disable-next-line no-unused-vars
 app.use(function (err, req, res, next) {

@@ -26,7 +26,7 @@ In order to view everything, the user will have to select edit-->
                         <td>
                             <router-link :to="{name: 'editClient', params: { id: client._id }}" class="btn btn-success ">Edit
                             </router-link>
-                            <router-link :to="{name: 'addProgram', params: { id: client._id }}" class="btn btn-info"> Add a Program
+                            <router-link :to="{name: 'addProgram', params: { id: client.clientNo }}" class="btn btn-info"> Add a Program
                             </router-link>
                             <button @click.prevent="deleteClient(client._id)" class="btn btn-danger mx-2">Delete</button>
                         </td>
