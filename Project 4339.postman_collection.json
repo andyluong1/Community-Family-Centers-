@@ -1,0 +1,336 @@
+{
+	"info": {
+		"_postman_id": "b43b849c-cc5b-4ea9-8e92-be7a7fd538b5",
+		"name": "Project 4339",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "CREATE Client",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"familyNo\": \"12341\",\r\n    \"clientNo\": \"000003\",\r\n    \"startDate\": \"2021-09-26\",\r\n    \"closeDate\": \"2022-09-27\",\r\n    \"generalInformation\": {\r\n        \"lastName\": \"Ngo\",\r\n        \"firstName\": \"Jolene\",\r\n        \"middleName\": \"something\",\r\n        \"birthDate\": \"01/01/1990\",\r\n        \"socialNumber\": \"123-45-6339\",\r\n        \"otherDocument\": \"N/A\",\r\n        \"gender\": \"M\",\r\n        \"txIDorLicense\": \"12345638\"\r\n    },\r\n    \"residenceInformation\": {\r\n        \"address\": \"123 Road rd\",\r\n        \"city\": \"houston\",\r\n        \"state\": \"texas\",\r\n        \"zip\": \"77581\",\r\n        \"county\": \"harris\",\r\n        \"residencyLengthYears\": \"20\",\r\n        \"livingArrangements\": \"renting\",\r\n        \"includedUtilities\": \"no\",\r\n        \"subsidizedRent\": \"yes\",\r\n        \"singleParent\": \"no\"\r\n    },\r\n    \"contactInformation\": {\r\n        \"homePhone\": \"123-456-7890\",\r\n        \"workPhone\": \"234-567-8901\",\r\n        \"cellPhone\": \"345-678-9012\",\r\n        \"otherPhone\": \"N/A\",\r\n        \"personalEmail\": \"jlngo1@email.com\",\r\n        \"otherEmail\": \"N/A\",\r\n        \"maritalStatus\": \"single\",\r\n        \"language\": \"english\",\r\n        \"ethnicity\": \"hispanic/laino\",\r\n        \"priorityPopulation\": \"N/A\",\r\n        \"pregnancy\": \"no\",\r\n        \"teenParent\": \"no\",\r\n        \"deliveryDate\": \"N/A\"\r\n    },\r\n    \"employmentInformation\": {\r\n        \"employed\": {\r\n            \"yearsEmployed\": \"5\",\r\n            \"employer\": \"krogers\",\r\n            \"occupation\": \"cashier\"\r\n        },\r\n        \"unemployed\": {\r\n            \"yearsUnemployed\": \"0\"\r\n        },\r\n        \"retired\": {\r\n            \"yearsRetired\": \"0\"\r\n        },\r\n        \"housewife\": \"no\"\r\n    },\r\n    \"educationInformation\": {\r\n        \"attendedSchool\": \"yes\",\r\n        \"nameofSchool\": \"houston highschool\",\r\n        \"lastCompletedGrade\": \"12\",\r\n        \"graduated\": \"yes\",\r\n        \"levelGraduated\": \"highschool\",\r\n        \"certification\": \"diploma\"\r\n    },\r\n    \"incomeInformation\": {\r\n        \"headOfHousehold\": \"Yes\",\r\n        \"monthlyIncome\": \"3000\",\r\n        \"otherIncome\": \"1000\",\r\n        \"spousalSupport\": \"No\",\r\n        \"workersComp\": \"No\",\r\n        \"childSupport\": \"No\",\r\n        \"TANF\": \"No\",\r\n        \"SSI\": \"No\",\r\n        \"Unemployment\": \"No\",\r\n        \"socialSecurity\": \"No\",\r\n        \"Other\": \"No\"\r\n    },\r\n    \"healthInsuranceInformation\": {\r\n        \"healthInsurance\": \"Yes\",\r\n        \"insuranceType\": \"Medicaid\",\r\n        \"foodStamps\": {\r\n            \"haveStamps\": \"No\",\r\n            \"stampsAmt\": \"\",\r\n            \"noStamps\": \"Do not quality\"\r\n        }\r\n    },\r\n    \"familyHouseholdMembers\": {\r\n        \"Name\": \"Jabel Ngo\",\r\n        \"Sex\": \"F\",\r\n        \"DOB\": \"6/25/1994\",\r\n        \"Age\": \"27\",\r\n        \"Relation\": \"Sister\",\r\n        \"Race\": \"Asian\",\r\n        \"Pregnant\": \"N\",\r\n        \"Work/Study\": \"School\",\r\n        \"Occupation/Grade\": \"Teacher\"\r\n    },\r\n    \"Notes\": \"Hello\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/client",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"client"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "RETRIEVE Clients",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/clients",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"clients"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "RETRIEVE One Client",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/client/:id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"client",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "5a1be430-25ad-11ec-982e-7ddff6e0f799"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UPDATE Client",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"generalInformation\": {\r\n        \"firstName\": \"Vincent\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/client/:id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"client",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "5a1be430-25ad-11ec-982e-7ddff6e0f799"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE Client",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/client/:id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"client",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "9804d610-24bf-11ec-910d-55a4afd02b51"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CREATE Program",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"activity\": \"Adult Education\",\r\n    \"clientNo\": \"3\",\r\n    \"lastName\": \"Martinez\",\r\n    \"firstName\": \"Diana\",\r\n    \"serviceUsed\": \"Yes\",\r\n    \"description\": \"Has a family of 4\",\r\n    \"startDate\": \"2021-04-21\",\r\n    \"closeDate\": \"2021-10-01\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/program",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"program"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "RETRIEVE Programs",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/programs",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"programs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "RETRIEVE One Program",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/program/:id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"program",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "71557a80-25ad-11ec-982e-7ddff6e0f799"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UPDATE Programs",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"activity\": \"Family Support Services\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/program/:id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"program",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "872da750-2545-11ec-afdc-5bcfccd8c349"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE Program",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/program/:id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"program",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "355d5410-2546-11ec-81ac-059c8464da12"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "RETRIEVE Activity with Client",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/activity/:id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"activity",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "RETRIEVE Activity with employeeNo",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/activity2/:employeeNo",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"activity2",
+						":employeeNo"
+					],
+					"variable": [
+						{
+							"key": "employeeNo",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"id": "ca1bf572-4dd4-4ea1-b336-b9001ba82991",
+			"key": "id",
+			"value": "93d50480-24be-11ec-a134-afa5034e46ea"
+		}
+	]
+}
