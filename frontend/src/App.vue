@@ -10,25 +10,19 @@
           <li class="nav-item">
             <router-link class="nav-link" to="/create">Create Clients</router-link>
           </li>
-          <!--
-            <li class="nav-item">
-            <router-link class="nav-link" to="/edit">Edit Clients</router-link>
-          </li> 
-          -->
+
           <li class="nav-item">
             <router-link class="nav-link" to="/view">View Clients</router-link>
           </li>
-          <!--<li class="nav-item">
-            <router-link class="nav-link" to="/addProgram/:id">Create Program</router-link>
-          </li>-->
+
           <li class="nav-item">
             <router-link class="nav-link" to="/programs">View Programs</router-link>
           </li>
-          <!--
-            <li class="nav-item">
-            <router-link class="nav-link" to="/editProgram">Edit Programs</router-link>
-          </li> 
-          -->
+
+          <li class="nav-item">
+            <router-link class="nav-link" to="/analysis">Anaylsis</router-link>
+          </li>
+          
           <li class="nav-item">
             <router-link class="nav-link" to="/about">About</router-link>
           </li>

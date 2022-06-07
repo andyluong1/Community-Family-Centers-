@@ -45,6 +45,11 @@ const routes = [
     path: '/addProgram/:id',
     name: 'addProgram',
     component: () => import('../components/AddProgramComponent')
+  },
+  {
+    path: '/analysis',
+    name: 'analysis',
+    component: () => import('../components/AnalysisComponent')
   }
 ]
 
