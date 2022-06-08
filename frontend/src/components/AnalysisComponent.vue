@@ -1,87 +1,51 @@
+<!-- canvas element placed in template tag because this is what is wanted to display -->
 <template>
-    <div class="row">
-        <div class="col-md-12">
-          <div>
-            <br>
-            <h2>Count of activities for each date</h2>
-            <line-chart :date="countPrograms(startDates)"></line-chart>
-            <br>
-            <h2>Count of Core Activities used by clients</h2>
-            <pie-chart :date="countPrograms(Programs)"></pie-chart>
-            <br>
-          </div>
-        </div>
-    </div>
+  <!-- canvas is a chart.js component to draw the graph after the data is gathered. -->
+  <canvas ref="myChart"></canvas>
 </template>
 
 <script>
-// import axios for API Endpoints & charts
-    import axios from "axios";
-    import 'chartkick/chart.js';
-
-    export default {
-        data() {
-            return {
-                Programs: [],
-                startDates: [],
-                loading: false,
-                error: null,
-            };
-        },
-        created() {
-            let apiURL = 'http://localhost:3000/program';
-            axios.get(apiURL).then(res => {
-                this.Programs = res.data;
-            }).catch(error => {
-                console.log(error)
-            });
-        },
-        methods: {
-            assortDates(Programs) {
-
-            const arr = Programs;
-
-            const sortDate = arr => {
-                const sorter = (a,b) => {
-                  return new Date(a.startDate).getTime() - new Date(b.startDate).getTime();
-                }
-                arr.sort(sorter);
-            };
-            sortDate(arr);
-            return(arr);
-            },
-            async fetchData() {
-            try {
-                this.error = null;
-                this.loading = true;
-                const url = 'http://localhost:3000/program';
-                const response = await axios.get(url);
-
-                this.startDates = response.data.map((item) => item.startDate);
-                this.Programs = response.data.map((item) => item.activity);
-            } catch (err) {
-                if (err.response) {
-                this.error = {
-                  title: "Server Response",
-                  message: err.message,
-                };
-                } else if (err.request) {
-                this.error = {
-                    title: "Unable to reach server",
-                    message: err.message,
-                };
-                } else {
-                this.error = {
-                    title: "Application Error",
-                    message: err.message,
-                };
-                }
-          }
-          this.loading = false;
-        },
+//using chart.js library
+import Chart from "chart.js/auto";
+export default {
+  props: {
+    label: {
+      type: Array,
     },
-    mounted() {
-    this.fetchData();
+    chartData: {
+      type: Array,
+    },
+  },
+  //allows asynchronous promises, once data is retrieved properly updates are added to the DOM
+  async mounted() {
+    //retrieves chart data
+    console.log(this.chartData);
+    //await function is used to populate Chart after data is loaded.
+    await new Chart(this.$refs.myChart, {
+      //type is an element to choose which type of chart the data will be displayed as
+      type: 'bar',
+      data: {
+        labels: this.label,
+        datasets: [
+          {
+            label: "total",
+            backgroundColor: ["yellow", "blue", "green", "red"],
+            data: this.chartData,
+          },
+        ],
+      },
+      options: {
+        scales: {
+          yAxes: [
+            {
+              ticks: {
+                beginAtZero: true,
+              },
+            },
+          ],
+        },
+      },
+    });
   },
 };
 </script>

@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
+import ProgramChart from '@/views/ProgramChart'
 
 // Define some routes
 // Each route maps to a component
@@ -47,10 +48,10 @@ const routes = [
     component: () => import('../components/AddProgramComponent')
   },
   {
-    path: '/analysis',
-    name: 'analysis',
-    component: () => import('../components/AnalysisComponent')
-  }
+     path: '/ProgramChart',
+     name: 'ProgramChart',
+     component: ProgramChart
+   },
 ]
 
 const router = createRouter({
