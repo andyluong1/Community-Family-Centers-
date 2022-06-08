@@ -21,10 +21,10 @@ app.use(morgan("dev"));  //enable incoming request logging in dev mode
 require('dotenv').config();
 
 
-//import client, program, and selection model schema from folder 'models'
+//import client and program model schema from folder 'models'
 let ClientModel = require('./models/client');
 let ProgramModel = require('./models/program');
-//let SelectionModel = require('./models/selection');
+
 
 //mongoose connection
 mongoose
